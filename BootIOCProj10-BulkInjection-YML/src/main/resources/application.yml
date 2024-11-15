@@ -1,0 +1,27 @@
+comp:
+  name: DRDO
+org:
+  nit:
+    addrs: hyd
+    branches: [hyd, vizag, delhi] 
+    colors: 
+     - red
+     - yellow
+     - blue
+    id: 1001
+    id-details:
+      aadhar: 545454554
+    idDetails:
+      bankAccount: 5677788767
+      pan: 545454554
+    mail: hcl@hcl.com
+    name: HCL
+    phones: 8888888,9999999,1000000
+    size: 100
+    supplier:
+      location: hyd
+      sid: 233454
+      sname: IKEA
+spring:
+  application:
+    name: BootIOCProj10-BulkInjection-ConfigurationPropertiesAnnotation

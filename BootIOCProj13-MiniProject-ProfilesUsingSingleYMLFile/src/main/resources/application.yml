@@ -1,0 +1,58 @@
+spring:
+  application:
+    name: BootIOCProj11-LayeredApp-MiniProject
+  #profiles:
+    #active: uat
+
+---
+spring:
+  config:
+      activate:
+          on-profile: dev
+  application:
+    name: BootIOCProj13-LayeredApp-MiniProject
+  datasource:
+     driver-class-name: com.mysql.cj.jdbc.Driver
+     password: rohith
+     type: org.apache.commons.dbcp2.BasicDataSource
+     url: jdbc:mysql:///spring_two_batch
+     username: root
+---
+spring:
+  config:
+      activate:
+          on-profile: test
+  application:
+     name: BootIOCProj13-LayeredApp-MiniProject
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    password: rohith
+    type: com.mchange.v2.c3p0.ComboPooledDataSource
+    url: jdbc:mysql:///spring_two_batch
+    username: root
+---
+spring:
+  config:
+      activate:
+          on-profile: uat
+  application:
+    name: BootIOCProj13-LayeredApp-MiniProject
+  datasource:
+    driver-class-name: oracle.jdbc.driver.OracleDriver
+    password: rohith
+    type: oracle.ucp.jdbc.PoolDataSourceImpl
+    url: jdbc:oracle:thin:@localhost:1521:orcl
+    username: system
+---
+spring:
+   config: 
+      activate: 
+          on-profile: prod
+   application:
+     name: BootIOCProj11-LayeredApp-MiniProject
+   datasource:
+        driver-class-name: oracle.jdbc.driver.OracleDriver
+        password: rohith
+        url: jdbc:oracle:thin:@localhost:1521:orcl
+        username: system     
+

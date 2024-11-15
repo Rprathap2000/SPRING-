@@ -1,0 +1,20 @@
+# spring info
+
+ # employee info      
+emp:
+   info: 
+       name: raja
+       id: 1001
+       addrs: hyd
+       email:  natarazjavaarena@gmail.com    
+        
+spring: 
+   config:
+     import: 
+       - myfile.yml
+       - App.properties
+   application: 
+       name: BootIOCProj09-YML
+  
+       
+

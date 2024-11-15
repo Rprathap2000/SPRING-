@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: BootIOCProj11-LayeredApp-MiniProject
+  profiles:
+    active: dev

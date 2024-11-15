@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: BootIOCProj11-LayeredApp-MiniProject
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    password: rohith
+    type: org.apache.commons.dbcp2.BasicDataSource
+    url: jdbc:mysql:///spring_two_batch
+    username: root

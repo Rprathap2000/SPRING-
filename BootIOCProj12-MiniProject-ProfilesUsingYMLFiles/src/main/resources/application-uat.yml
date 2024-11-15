@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: BootIOCProj11-LayeredApp-MiniProject
+  datasource:
+    driver-class-name: oracle.jdbc.driver.OracleDriver
+    password: rohith
+    type: oracle.ucp.jdbc.PoolDataSourceImpl
+    url: jdbc:oracle:thin:@localhost:1521:orcl
+    username: system
