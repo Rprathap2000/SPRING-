@@ -13,11 +13,11 @@ import jakarta.persistence.Table;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
-
+//data
 @Data
 @Entity
 @Table(name="JPA_JODA_DATE_TIME")
-@RequiredArgsConstructor
+@RequiredArgsConstructor 
 @NoArgsConstructor
 public class PersonInfo {
 	@Id
