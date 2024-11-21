@@ -17,7 +17,7 @@ import lombok.RequiredArgsConstructor;
 @Data
 @Entity
 @Table(name="JPA_JODA_DATE_TIME")
-@RequiredArgsConstructor 
+//@RequiredArgsConstructor 
 @NoArgsConstructor
 public class PersonInfo {
 	@Id

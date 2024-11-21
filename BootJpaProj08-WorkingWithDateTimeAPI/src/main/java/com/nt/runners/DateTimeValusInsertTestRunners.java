@@ -21,9 +21,19 @@ public class DateTimeValusInsertTestRunners implements CommandLineRunner {
 		{
 			e.printStackTrace();
 		}*/
-		try
+		/*try
 		{
 			personService.showAllPersons().forEach(System.out::println);
+			
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}*/
+		
+		try
+		{
+			System.out.println("Person Age is ::s"+personService.getAgeByPid(1));
 			
 		}
 		catch(Exception e)

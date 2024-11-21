@@ -33,10 +33,10 @@ public interface IEmployeeRepository extends JpaRepository<Employee, Integer> {
     @Query("from Employee emp where emp.sal >= min and emp.sal <= max")
     public List<Employee> loadEmpBySalaryRange(double min, double max);
     
-    @Query("from Employee where job in (:desg1;desg2;desg3)")//Entity query
+    @Query("from Employee where job in (:desg1,:desg2,:desg3)")//Entity query
     public List<Employee> showEmpsByDesgs(String desg1,String desg2,String desg3);
     
-    @Query("select empno,ename,job from Employee where job in (:desg1;desg2;desg3)")//scalar query getting specific multiple col value
+    @Query("select empno,ename,job from Employee where job in (:desg1,:desg2,:desg3)")//scalar query getting specific multiple col value
     public List<Employee>showEmpsDataByDesg(String desg1,String desg2,String desg3);
     
     @Query("select empno,ename,job from Employee like :initChars")//scalar query getting specific single col value
@@ -51,11 +51,12 @@ public interface IEmployeeRepository extends JpaRepository<Employee, Integer> {
     @Query("select sal from Employee where ename=:name")//single record scalar query giving single value
     public Double fetchEmpSalaryByName(String name);
     
-    @Query("select count(district ename)from Employee")
+    @Query("select count(ename) from Employee") // Fixed query
     public long showEmpCount();
-    
-    @Query("select count(*),max(sal),min(sal),avg(sal),sum(sal,sum(sal) from Employee")
-    public Object showArrgregateData();
+
+    @Query("select count(*), max(sal), min(sal), avg(sal), sum(sal) from Employee") // Fixed query
+    public Object showAggregateData();
+
     
     
     //==============NON SELECT OPERATIONS ===================
@@ -72,7 +73,7 @@ public interface IEmployeeRepository extends JpaRepository<Employee, Integer> {
     
     @Transactional
     @Modifying
-    @Query(value="SELECT SYSDATE FROM DUAL",nativeQuery=true);
+    @Query(value="SELECT SYSDATE FROM DUAL",nativeQuery=true)
     public LocalDateTime showSystemDate();
     
     

@@ -5,5 +5,7 @@ import com.nt.entity.PersonInfo;
 public interface IPersonInfoMgmtService {
 	public String registerPerson(PersonInfo per);
 	public Iterable<PersonInfo> showAllPersons();
+	public float getAgeByPid(int id);
+	
 
 }

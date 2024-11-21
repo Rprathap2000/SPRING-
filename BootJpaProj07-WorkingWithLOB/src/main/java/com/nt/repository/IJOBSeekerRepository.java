@@ -1,7 +1,8 @@
 package com.nt.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import com.nt.entity.JobSeeker;
 
-public final class IJOBSeekerRepository implements JpaRepository<JobSeeker, Integer> {
-
+public interface IJOBSeekerRepository extends JpaRepository<JobSeeker, Integer> {
+    // This interface will automatically provide CRUD operations.
 }

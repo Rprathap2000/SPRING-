@@ -1,4 +1,4 @@
-package om.nt.services;
+package com.nt.services;
 
 import com.nt.entity.BankAccount;
 

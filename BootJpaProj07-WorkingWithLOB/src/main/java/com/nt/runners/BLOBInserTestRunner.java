@@ -1,8 +1,7 @@
 package com.nt.runners;
 
-import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileReader;
+import java.io.IOException;
 import java.util.Scanner;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,46 +14,52 @@ import com.nt.service.IJObSeekerMgntService;
 @Component
 public class BLOBInserTestRunner implements CommandLineRunner {
 
-	@Autowired
-	private IJObSeekerMgntService jsService;
-	
-	@Override
-	public void run(String... args) throws Exception {
-		Scanner sc=new Scanner(System.in);
-		System.out.println("Enter Js name");
-		String name=sc.next();
-		System.out.println("Enter Js address");
-		String addrs=sc.next();
-		System.out.println("Js is Indian");
-		boolean indian=sc.nextBoolean();
-		System.out.println("Enter Js Photo file path");
-		String photoPath=sc.next();
-		System.out.println("Enter Js Resume file path");
-		String resumePath=sc.next();
-		
-		//Convert the PhotoFile content into byte[]
-		
-		FileInputStream fis=new FileInputStream(photoPath);
-		byte[] photoData=fis.readAllBytes();
-		photoData=fis.readAllBytes();
-		
-		//convert the resume file content to char[]
-		File file=new File(resumePath);
-		FileReader fr=new FileReader(resumePath);
-		int length=(int)file.length();
-		char[] resumeData=new char[length];
-		fr.read(resumeData);
-		
-		//prepare Entity class object
-		JobSeeker js=new JobSeeker(name,addrs,photoData,resumeData,indian);
-		try {
-			String msg=jsService.registerJobSeeker(js);
-			System.out.println(msg);
-		}
-		catch(Exception e)
-		{
-			e.printStackTrace();
-		}
-	}
+    @Autowired
+    private IJObSeekerMgntService jsService;
 
+    @Override
+    public void run(String... args) throws Exception {
+        Scanner sc = new Scanner(System.in);
+        
+        // Taking user input
+        System.out.println("Enter Job Seeker Name:");
+        String name = sc.nextLine();
+        
+        System.out.println("Enter Job Seeker Address:");
+        String addrs = sc.nextLine();
+        
+        System.out.println("Is Job Seeker Indian? (true/false):");
+        boolean indian = sc.nextBoolean();
+        
+        // Read file paths
+        System.out.println("Enter Job Seeker Photo File Path:");
+        String photoPath = sc.next();
+        
+        System.out.println("Enter Job Seeker Resume File Path:");
+        String resumePath = sc.next();
+
+        // Convert photo to byte[]
+        byte[] photoData = readFileToByteArray(photoPath);
+        
+        // Convert resume to byte[]
+        byte[] resumeData = readFileToByteArray(resumePath);
+        
+        // Create JobSeeker entity
+        JobSeeker js = new JobSeeker(name, addrs, photoData, resumeData);
+        
+        // Register job seeker
+        try {
+            String msg = jsService.registerJobSeeker(js);
+            System.out.println(msg);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    // Helper method to convert file to byte array
+    private byte[] readFileToByteArray(String filePath) throws IOException {
+        try (FileInputStream fis = new FileInputStream(filePath)) {
+            return fis.readAllBytes();
+        }
+    }
 }

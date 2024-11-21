@@ -6,8 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class BootJpaProj07WorkingWithLobApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(BootJpaProj07WorkingWithLobApplication.class, args);
-	}
-
+    public static void main(String[] args) {
+        SpringApplication.run(BootJpaProj07WorkingWithLobApplication.class, args);
+    }
 }

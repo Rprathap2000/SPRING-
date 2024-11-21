@@ -20,5 +20,10 @@ public class PersonInfoMgmtServiceImpl implements IPersonInfoMgmtService {
 		
 		return personRepo.findAll();
 	}
+	@Override
+	public float getAgeByPid(int id) {
+		
+		return personRepo.calculateAgeByPid(id);
+	}
 
 }
